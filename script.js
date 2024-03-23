@@ -66,7 +66,8 @@ function numeralValue(roman) {
     return ans;
 }
 
-cbtn1.addEventListener('click', () => {
+
+function cbtn1Action() {
     if (ip.value == '') {
         op.innerHTML = `<p class='error'>Please enter a number</p>`;
         setTimeout(() => {
@@ -85,11 +86,21 @@ cbtn1.addEventListener('click', () => {
     else {
         op.innerHTML = `<p class='accepted'>${romanValue(ip.value)}</p>`;
     }
+}
+
+cbtn1.addEventListener('click', () => {
+    cbtn1Action()
 
 })
 
+ip.addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        cbtn1Action();
+    }
+})
 
-cbtn2.addEventListener('click', () => {
+function cbtn2Action() {
     if (ip.value == '') {
         op.innerHTML = `<p class='error'>Please enter a String</p>`;
         setTimeout(() => {
@@ -105,8 +116,11 @@ cbtn2.addEventListener('click', () => {
             op.innerHTML = `<p class='accepted'>${ans}</p>`;
         }
     }
-})
+}
 
+cbtn2.addEventListener('click', () => {
+    cbtn2Action();
+})
 
 const placeholderLines = [
     'Enter a positive number',
