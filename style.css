@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #192837;
+}
+
+.container {
+    width: 500px;
+    min-height: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 12px;
+    gap: 20px;
+    transition: border 0.8s 0s ease-in-out;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.container:hover {
+    border-bottom: 2px solid #085bad;
+}
+
+#title {
+    width: 100%;
+    text-align: center;
+    block-size: 60px;
+    padding-top: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: white;
+    background-color: #085bad;
+    transition: letter-spacing 0.2s 0s linear;
+}
+
+#title::before{
+    content: ' ';
+    background-color: white;
+    height: 2px;
+    width: 0;
+    display: block;
+    position: relative;
+    top: 35px;
+    left: 230px;
+    transition: width 0.5s 0s linear, left 0.5s 0s linear;
+}
+
+#title:hover:before {
+    width: 78%;
+    left: 55px;
+}
+
+
+input[type=text] {
+    border: 2px solid white;
+    outline: none;
+    border-radius: 8px;
+    text-indent: 10px;
+    font-size: 1.3em;
+    block-size: 40px;
+    width: 65%;
+    transition: border .25s 0s ease-in;
+
+}
+
+input[type=text]:focus {
+    border: 2px solid purple;
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+button {
+    width: 30%;
+    block-size: 45px;
+    border-radius: 4px;
+    font-size: 1em;
+    padding-block: 3px;
+    border: 3px solid rgb(78, 4, 78);
+    background-color: rgba(78, 4, 78, 0.5);
+    color: white;
+    transition: background-color 0.8s 0s ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(78, 4, 78);
+}
+
+.outpuutt {
+    align-self: start;
+    margin-left: 65px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: lighter;
+}
+
+#output {
+    display: block;
+    width: 65%;
+    border-radius: 8px;
+    min-height: 70px;
+    text-align: center;
+    color: white;
+}
+
+.error {
+    border: 2px solid red;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+    background-color: rgb(255, 0, 0, 0.35);
+    transition: background-color 0.8s 0s ease-in-out;
+}
+
+.error:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.accepted {
+    border: 2px solid rgb(0, 255, 0, 0.5);
+    background-color: rgb(0, 255, 0, 0.15);
+    min-height: 70px;
+    font-size: 1.6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 4px;
+    transition: background-color 0.8s 0s ease-in-out;
+}
+
+.accepted:hover {
+    background-color: rgb(0, 255, 0, 0.5);
+}
