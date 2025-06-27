@@ -19,19 +19,24 @@ function romanValue(num) {
         ['IV', 4],
         ['I', 1]
     ];
-    const res = [];
-    ref.forEach(function (arr) {
-        while (num >= arr[1]) {
-            res.push(arr[0]);
-            num -= arr[1];
+    
+    let res = "";
+    
+    for (let [symbol, value] of ref) {
+        const count = Math.floor(num / value);
+        if (count > 0) {
+            res += symbol.repeat(count);
+            num -= value * count;
         }
-    });
-
-    return res.join('');
+        if (num === 0) break;
+    }
+    
+    return res;
 }
 
+
 function numeralValue(roman) {
-    res = {
+    const ref = {
         'M': 1000,
         'D': 500,
         'C': 100,
@@ -39,32 +44,30 @@ function numeralValue(roman) {
         'X': 10,
         'V': 5,
         'I': 1
-    }
-
-    let result = roman.split('');
+    };
 
     let ans = 0;
-    var i = 0;
-    var j = result.length;
+    let n = roman.length;
 
-    while (j--) {
-        let val = 0;
-        val = res[result[i]];
+    for (let i = 0; i < n; i++) {
+        let curr = ref[roman[i]];
+        let next = ref[roman[i + 1]];
 
-        if (!val) {
-            return 0;
-        } else if (i < result.length - 1 && (result[i] < result[i + 1])) {
-            ans = ans - val;
-        }
-        else {
-            ans = ans + val;
+        if (!curr) {
+            return 0;  // invalid character
         }
 
-        i++;
-
+        // if next exists and is bigger, it means subtract
+        if (next && curr < next) {
+            ans -= curr;
+        } else {
+            ans += curr;
+        }
     }
+
     return ans;
 }
+
 
 
 function cbtn1Action() {
